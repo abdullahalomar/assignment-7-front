@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./features/auth/authSlice";
 import { baseApi } from "./api/baseApi";
+import darkModeReducer from "./features/darkMood/darkMoodSlice";
 import {
   persistReducer,
   persistStore,
@@ -24,6 +25,7 @@ export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     auth: persistedAuthReducer,
+    darkMode: darkModeReducer,
   },
   middleware: (getDefaultMiddlewares) =>
     getDefaultMiddlewares({

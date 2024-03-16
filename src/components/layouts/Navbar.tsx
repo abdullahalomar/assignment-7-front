@@ -1,9 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/cloth.png";
 import { motion } from "framer-motion";
 import { useAppDispatch } from "../../redux/hooks";
 import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";
 import { useSelector } from "react-redux";
+import { toggleDarkMode } from "../../redux/features/darkMood/darkMoodSlice";
+import dark from "../../assets/images/night-mode.png";
+import light from "../../assets/images/light-mode.png";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -12,6 +16,13 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logout());
   };
+
+  const darkMode = useSelector((state) => state.darkMode.darkMode);
+
+  const handleDarkModeToggle = () => {
+    dispatch(toggleDarkMode());
+  };
+
   return (
     <div className="sticky top-0 z-50">
       <div className="navbar bg-slate-200 md:px-28 lg:px-28">
@@ -96,6 +107,22 @@ const Navbar = () => {
               >
                 Login
               </NavLink>
+            )}
+          </motion.div>
+
+          <motion.div
+            className="ms-4"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.8 }}
+          >
+            {darkMode ? (
+              <button onClick={handleDarkModeToggle}>
+                <img src={light} width={35} alt="" />
+              </button>
+            ) : (
+              <button onClick={handleDarkModeToggle}>
+                <img src={dark} width={35} alt="" />
+              </button>
             )}
           </motion.div>
         </div>

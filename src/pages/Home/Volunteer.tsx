@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const Volunteer = () => {
   return (
-    <div className="lg:mx-28 md:mx-28 sm:mx-28 mx-6 my-28">
+    <div className="lg:mx-28 md:mx-28 sm:mx-28 mx-6 py-28">
       <motion.div
         animate={{ x: 10 }}
         transition={{ ease: "easeOut", duration: 5 }}
