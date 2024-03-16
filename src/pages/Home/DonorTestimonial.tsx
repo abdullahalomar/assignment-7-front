@@ -9,8 +9,18 @@ import "./DonorTestimonial.css";
 
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
+import { useGetAllTestimonialsQuery } from "../../redux/features/dashboard/testimonialManagement.api";
+import Loader from "../../utils/Loader";
 
 const DonorTestimonial = () => {
+  const { data: testimonialData, isLoading } =
+    useGetAllTestimonialsQuery(undefined);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  const testimonials = testimonialData?.data?.slice(0, 6);
   return (
     <div className="mx-6 sm:mx-6 md:mx-28 lg:mx-28 mt-10">
       <h1 className="text-center text-4xl font-semibold">donor testimonial</h1>
@@ -31,35 +41,32 @@ const DonorTestimonial = () => {
           modules={[EffectCoverflow, Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className="card w-80 h-[400px] shadow-xl bg-gradient-to-r from-cyan-300 to-blue-400">
-              <figure className="px-10 pt-10">
-                <div className="avatar">
-                  <div className="w-24 rounded-xl ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          {testimonials.map((testimonial) => (
+            <SwiperSlide key={testimonial._id}>
+              <div className="card w-80 h-[400px] shadow-xl bg-gradient-to-r from-cyan-300 to-blue-400">
+                {/* <figure className="px-10 pt-10">
+                  <div className="avatar">
+                    <div className="w-24 rounded-xl ring ring-primary ring-offset-base-100 ring-offset-2">
+                      <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    </div>
                   </div>
+                </figure> */}
+                <div className="card-body items-center text-center">
+                  <h2 className="card-title">{testimonial.name}</h2>
+                  <p>
+                    <span className="font-semibold">Location:</span>{" "}
+                    {testimonial.location}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Contribution Date:</span>{" "}
+                    {testimonial.contributionDate}
+                  </p>
+                  <p className="">{testimonial.description}</p>
                 </div>
-              </figure>
-              <div className="card-body items-center text-center">
-                <h2 className="card-title">Emily R.</h2>
-                <p>
-                  <span className="font-semibold">Location:</span> Chicago,
-                  Illinois
-                </p>
-                <p>
-                  <span className="font-semibold">Contribution Date:</span>{" "}
-                  December 10, 2023
-                </p>
-                <p className="">
-                  "Knowing that my donation of coats and scarves can bring
-                  warmth to someone in need fills my heart with joy. It's a
-                  simple gesture, but the gratitude I've received is
-                  immeasurable."
-                </p>
               </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
+            </SwiperSlide>
+          ))}
+          {/* <SwiperSlide>
             <div className="card w-80   shadow-xl bg-gradient-to-r from-cyan-300 to-blue-400">
               <figure className="px-10 pt-10">
                 <div className="avatar">
@@ -198,7 +205,7 @@ const DonorTestimonial = () => {
                 </p>
               </div>
             </div>
-          </SwiperSlide>
+          </SwiperSlide> */}
         </Swiper>
       </div>
     </div>

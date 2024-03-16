@@ -10,6 +10,8 @@ import WinterCloth from "../pages/admin/WinterCloth";
 import CreateWinterCloth from "../pages/admin/CreateWinterCloth";
 import AllWinterClothes from "../pages/Home/AllWinterClothes";
 import SingleWinterClothesDetails from "../pages/Home/SingleWinterClothesDetails";
+import CreateTestimonial from "../pages/admin/Testimonials/CreateTestimonial";
+import AllTestimonials from "../pages/admin/Testimonials/AllTestimonials";
 
 const router = createBrowserRouter([
   {
@@ -18,11 +20,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home></Home>,
+        element: <Home />,
       },
       {
         path: "winter-clothes",
-        element: <AllWinterClothes></AllWinterClothes>,
+        element: <AllWinterClothes />,
       },
       {
         path: "winter-clothes/:id",
@@ -42,18 +44,27 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Dashboard></Dashboard>,
+        element: <Dashboard />,
       },
 
       // all cloths
       {
         path: "winter-cloths",
-        element: <WinterCloth></WinterCloth>,
+        element: <WinterCloth />,
       },
       // add cloth
       {
         path: "create-winter-clothes",
-        element: <CreateWinterCloth></CreateWinterCloth>,
+        element: <CreateWinterCloth />,
+      },
+      // add testimonial
+      {
+        path: "testimonials",
+        element: <AllTestimonials />,
+      },
+      {
+        path: "create-testimonial",
+        element: <CreateTestimonial />,
       },
     ],
   },
@@ -61,11 +72,11 @@ const router = createBrowserRouter([
   // Authentication routes
   {
     path: "/login",
-    element: <Login></Login>,
+    element: <Login />,
   },
   {
     path: "/register",
-    element: <Register></Register>,
+    element: <Register />,
   },
 ]);
 

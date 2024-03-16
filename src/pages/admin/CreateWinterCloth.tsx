@@ -44,7 +44,7 @@ const CreateWinterCloth = () => {
           toast.error(res.error.data.message, { id: toastId });
         } else {
           toast.success("Cloth added successfully", { id: toastId });
-          refetch();
+
           reset();
         }
       } else {

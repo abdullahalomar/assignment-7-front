@@ -12,7 +12,7 @@ const AllWinterClothes = () => {
 
   const allClothesData = clothData?.data?.slice(0, 12);
   return (
-    <div className="my-20">
+    <div className="py-20">
       <div className="flex flex-wrap sm:flex-wrap md:flex-wrap lg:flex-wrap gap-10 md:mx-3 mx-4 justify-center">
         {allClothesData?.map((cloth) => (
           <div className="card w-96 bg-base-100 shadow-xl">
