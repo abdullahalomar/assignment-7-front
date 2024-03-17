@@ -12,6 +12,7 @@ import AllWinterClothes from "../pages/Home/AllWinterClothes";
 import SingleWinterClothesDetails from "../pages/Home/SingleWinterClothesDetails";
 import CreateTestimonial from "../pages/admin/Testimonials/CreateTestimonial";
 import AllTestimonials from "../pages/admin/Testimonials/AllTestimonials";
+import Community from "../pages/Home/Community";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "winter-clothes/:id",
         element: <SingleWinterClothesDetails />,
+      },
+      {
+        path: "community",
+        element: <Community />,
       },
     ],
   },
