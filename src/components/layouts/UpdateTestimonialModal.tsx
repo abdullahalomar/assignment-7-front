@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { X } from "lucide-react";
-import WinterClothForm from "./WinterClothForm";
-import { useGetSingleClothQuery } from "../../redux/features/dashboard/clothManagement.api";
+import TestimonialForm from "./TestimonialForm";
+import { useGetSingleTestimonialQuery } from "../../redux/features/dashboard/testimonialManagement.api";
 import Loader from "../../utils/Loader";
 
-const UpdateClothModal = ({ onClose, clothId, isUpdate }: any) => {
-  const { data, isLoading } = useGetSingleClothQuery(clothId);
+const UpdateTestimonialModal = ({ onClose, testimonialId, isUpdate }: any) => {
+  const { data, isLoading } = useGetSingleTestimonialQuery(testimonialId);
 
   console.log(data);
   if (isLoading) {
@@ -20,10 +20,10 @@ const UpdateClothModal = ({ onClose, clothId, isUpdate }: any) => {
           onClick={onClose}
           width={24}
           height={24}
-          className="text-black hover:text-white hover:bg-slate-500 rounded-full absolute top-2 right-3 cursor-pointer"
+          className="text-black hover:text-white hover:bg-slate-500 rounded-full absolute  absolute top-2 right-3 cursor-pointer"
         />
-        <WinterClothForm
-          cloth={data?.data}
+        <TestimonialForm
+          testimonial={data?.data}
           onClose={onClose}
           isUpdate={isUpdate}
         />
@@ -32,4 +32,4 @@ const UpdateClothModal = ({ onClose, clothId, isUpdate }: any) => {
   );
 };
 
-export default UpdateClothModal;
+export default UpdateTestimonialModal;

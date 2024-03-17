@@ -2,6 +2,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { useAddTestimonialMutation } from "../../../redux/features/dashboard/testimonialManagement.api";
 import { TResponse } from "../../../types/global";
 import { toast } from "sonner";
+import axios from "axios";
 
 const CreateTestimonial = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -12,20 +13,38 @@ const CreateTestimonial = () => {
 
     const toastId = toast.loading("Creating...");
 
-    try {
-      const testimonialData = {
-        name: data.name,
-        location: data.location,
-        contributionDate: data.contributionDate,
-        description: data.description,
-      };
+    // Image upload
+    const formData = new FormData();
+    formData.append("image", data.image[0]);
 
-      const res = (await addTestimonial(testimonialData)) as TResponse;
-      if (res.error) {
-        toast.error(res.error.data.message, { id: toastId });
+    try {
+      const imageBBResponse = await axios.post(
+        "https://api.imgbb.com/1/upload?key=85c1216e45edfae5e4e2980d02d293ba",
+        formData
+      );
+
+      if (imageBBResponse.data.success) {
+        // Extract image URL from the ImageBB response
+        const imageUrl = imageBBResponse.data.data.url;
+
+        const testimonialData = {
+          name: data.name,
+          image: imageUrl,
+          location: data.location,
+          contributionDate: data.contributionDate,
+          description: data.description,
+        };
+
+        const res = (await addTestimonial(testimonialData)) as TResponse;
+        if (res.error) {
+          toast.error(res.error.data.message, { id: toastId });
+        } else {
+          toast.success("Testimonial added successfully", { id: toastId });
+
+          reset();
+        }
       } else {
-        toast.success("Testimonial added successfully", { id: toastId });
-        reset();
+        toast.error("Image upload failed", { id: toastId });
       }
     } catch (error) {
       toast.error("Something went wrong", { id: toastId });
@@ -46,6 +65,18 @@ const CreateTestimonial = () => {
                 className="grow"
                 placeholder="name"
                 {...register("name")}
+              />
+            </label>
+          </div>
+
+          <div>
+            <span className="label-text">Image</span>
+            <label className="input input-bordered flex items-center gap-2 mt-3">
+              <input
+                type="file"
+                className="grow"
+                placeholder="Image"
+                {...register("image")}
               />
             </label>
           </div>

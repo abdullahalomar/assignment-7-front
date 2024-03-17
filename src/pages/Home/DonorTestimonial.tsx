@@ -21,6 +21,8 @@ const DonorTestimonial = () => {
   }
 
   const testimonials = testimonialData?.data?.slice(0, 6);
+  console.log(testimonials);
+
   return (
     <div className="mx-6 sm:mx-6 md:mx-28 lg:mx-28 mt-10">
       <h1 className="text-center text-4xl font-semibold">donor testimonial</h1>
@@ -44,13 +46,13 @@ const DonorTestimonial = () => {
           {testimonials.map((testimonial) => (
             <SwiperSlide key={testimonial._id}>
               <div className="card w-80 h-[400px] shadow-xl bg-gradient-to-r from-cyan-300 to-blue-400">
-                {/* <figure className="px-10 pt-10">
+                <figure className="px-10 pt-10">
                   <div className="avatar">
                     <div className="w-24 rounded-xl ring ring-primary ring-offset-base-100 ring-offset-2">
-                      <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                      <img src={testimonial?.image} />
                     </div>
                   </div>
-                </figure> */}
+                </figure>
                 <div className="card-body items-center text-center">
                   <h2 className="card-title">{testimonial.name}</h2>
                   <p>

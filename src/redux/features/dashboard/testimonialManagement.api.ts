@@ -13,7 +13,7 @@ const testimonialManagementApi = baseApi.injectEndpoints({
       invalidatesTags: ["testimonial"],
     }),
 
-    // get all cloth
+    // get all testimonial
     getAllTestimonials: builder.query({
       query: () => {
         return { url: "/testimonials", method: "GET" };
@@ -28,26 +28,36 @@ const testimonialManagementApi = baseApi.injectEndpoints({
       },
     }),
 
-    // update cloth
-    // updateCloth: builder.mutation({
-    //   query: ({ clothId, data }) => ({
-    //     url: `/winter-clothes/${clothId}`,
-    //     method: "PUT",
-    //     body: data,
-    //   }),
-    //   invalidatesTags: ["winterCloth"],
-    // }),
+    // get single testimonial
+    getSingleTestimonial: builder.query({
+      query: (testimonialId) => `/testimonials/${testimonialId}`,
+    }),
 
-    // delete cloth
-    // deleteCloth: builder.mutation({
-    //   query: (clothId) => ({
-    //     url: `/winter-clothes/${clothId}`,
-    //     method: "DELETE",
-    //   }),
-    //   invalidatesTags: ["winterCloth"],
-    // }),
+    // update testimonial
+    updateTestimonial: builder.mutation({
+      query: ({ testimonialId, data }) => ({
+        url: `/testimonials/${testimonialId}`,
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: ["testimonial"],
+    }),
+
+    // delete testimonial
+    deleteTestimonial: builder.mutation({
+      query: (testimonialId) => ({
+        url: `/testimonials/${testimonialId}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["testimonial"],
+    }),
   }),
 });
 
-export const { useAddTestimonialMutation, useGetAllTestimonialsQuery } =
-  testimonialManagementApi;
+export const {
+  useAddTestimonialMutation,
+  useGetAllTestimonialsQuery,
+  useDeleteTestimonialMutation,
+  useGetSingleTestimonialQuery,
+  useUpdateTestimonialMutation,
+} = testimonialManagementApi;

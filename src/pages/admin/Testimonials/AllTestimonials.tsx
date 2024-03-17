@@ -1,15 +1,39 @@
 import { FilePenLine, Trash } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useGetAllTestimonialsQuery } from "../../../redux/features/dashboard/testimonialManagement.api";
+import {
+  useDeleteTestimonialMutation,
+  useGetAllTestimonialsQuery,
+} from "../../../redux/features/dashboard/testimonialManagement.api";
 import Loader from "../../../utils/Loader";
+import { toast } from "sonner";
+import { useState } from "react";
+import UpdateTestimonialModal from "../../../components/layouts/UpdateTestimonialModal";
 
 const AllTestimonials = () => {
   const { data: testimonialData, isLoading } =
     useGetAllTestimonialsQuery(undefined);
+  const [deleteTestimonialMutation] = useDeleteTestimonialMutation();
+  const [editTestimonialId, setEditTestimonialId] = useState();
+  const [showTestimonialModal, setShowTestimonialModal] = useState(false);
+
+  const onUpdateModalClose = () => {
+    setShowTestimonialModal(false);
+  };
 
   if (isLoading) {
     return <Loader />;
   }
+
+  const handleDeleteTestimonial = async (testimonialId: string) => {
+    const toastId = toast.loading("Deleting...");
+    try {
+      await deleteTestimonialMutation(testimonialId);
+      toast.success("Delete Successfully", { id: toastId, duration: 2000 });
+    } catch (error) {
+      console.error("Error deleting Testimonial:", error);
+    }
+  };
+
   return (
     <div>
       <h1 className="text-center text-3xl font-semibold my-6">
@@ -44,12 +68,21 @@ const AllTestimonials = () => {
                 <td className="">
                   {/* edit */}
                   {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                  <button className="btn btn-warning me-4">
+                  <button
+                    onClick={() => {
+                      setShowTestimonialModal(true);
+                      setEditTestimonialId(testimonial._id);
+                    }}
+                    className="btn btn-warning me-4"
+                  >
                     <FilePenLine />
                   </button>
 
                   {/* delete */}
-                  <button className="btn btn-error">
+                  <button
+                    onClick={() => handleDeleteTestimonial(testimonial._id)}
+                    className="btn btn-error"
+                  >
                     <Trash />
                   </button>
                 </td>
@@ -58,6 +91,13 @@ const AllTestimonials = () => {
           </tbody>
         </table>
       </div>
+      {showTestimonialModal && (
+        <UpdateTestimonialModal
+          onClose={onUpdateModalClose}
+          testimonialId={editTestimonialId}
+          isUpdate={true}
+        />
+      )}
     </div>
   );
 };
