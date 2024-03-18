@@ -13,6 +13,7 @@ import SingleWinterClothesDetails from "../pages/Home/SingleWinterClothesDetails
 import CreateTestimonial from "../pages/admin/Testimonials/CreateTestimonial";
 import AllTestimonials from "../pages/admin/Testimonials/AllTestimonials";
 import Community from "../pages/Home/Community";
+import Volunteer from "../pages/Home/Volunteer";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "community",
         element: <Community />,
+      },
+      {
+        path: "volunteer",
+        element: <Volunteer />,
       },
     ],
   },

@@ -8,12 +8,12 @@ import { motion } from "framer-motion";
 
 const WinterCloths = () => {
   const currentUser = useSelector(selectCurrentUser);
-  const { data: clothata, isLoading } = useGetAllClothsQuery(undefined);
+  const { data: clothData, isLoading } = useGetAllClothsQuery(undefined);
   if (isLoading) {
     return <Loader />;
   }
 
-  const clothSliceData = clothata?.data?.slice(0, 6);
+  const clothSliceData = clothData?.data?.slice(0, 6);
   return (
     <div className="mb-28 lg:mx-28 md:mx-28 sm:mx-10 mx-10 mt-10 md:mt-0 sm:10">
       <h1 className="text-center text-4xl font-semibold mb-5">

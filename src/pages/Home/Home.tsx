@@ -2,7 +2,7 @@ import AboutUs from "./AboutUs";
 import DonorTestimonial from "./DonorTestimonial";
 import Gallery from "./Gallery";
 import HeroSection from "./HeroSection";
-import Volunteer from "./Volunteer";
+import VolunteerOpportunities from "./VolunteerOpportunities";
 import WeatherSafetyTips from "./WeatherSafetyTips";
 import WinterCloths from "./WinterCloths";
 
@@ -15,7 +15,7 @@ const home = () => {
       <Gallery></Gallery>
       <AboutUs></AboutUs>
       <WeatherSafetyTips></WeatherSafetyTips>
-      <Volunteer></Volunteer>
+      <VolunteerOpportunities />
       {/* <SuccessStory></SuccessStory> */}
     </div>
   );

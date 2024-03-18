@@ -50,6 +50,22 @@ const Navbar = () => {
             >
               <li>
                 <NavLink
+                  to="/dashboard"
+                  className="text-md font-bold hover:text-cyan-500"
+                >
+                  Dashboard
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/winter-clothes"
+                  className="text-md font-bold hover:text-cyan-500"
+                >
+                  All Winter Clothes
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
                   to="/community"
                   className="text-md font-bold hover:text-cyan-500"
                 >
@@ -58,49 +74,45 @@ const Navbar = () => {
               </li>
               <li>
                 <NavLink
-                  to="/winter-clothes"
+                  to="/volunteer"
                   className="text-md font-bold hover:text-cyan-500"
                 >
-                  All Winter Clothes
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/dashboard"
-                  className="text-md font-bold hover:text-cyan-500"
-                >
-                  Dashboard
+                  Volunteer
                 </NavLink>
               </li>
             </ul>
           </div>
-
           <Link to="/">
             <img src={logo} width={100} alt="" />
           </Link>
         </div>
-
-        <div className="navbar-end">
-          <div className="navbar-center hidden lg:flex me-6">
-            <ul className="menu menu-horizontal px-4">
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            <li>
+              <NavLink
+                to="/volunteer"
+                className="text-md font-bold hover:text-cyan-500"
+              >
+                Volunteer
+              </NavLink>
+            </li>
+            <li>
               <NavLink
                 to="/community"
                 className="text-md font-bold hover:text-cyan-500"
               >
                 Community
               </NavLink>
-            </ul>
-            {currentUser ? (
-              <ul className="menu menu-horizontal px-1">
+            </li>
+            <li>
+              {currentUser ? (
                 <NavLink
                   to="/winter-clothes"
                   className="text-md font-bold hover:text-cyan-500"
                 >
                   All Winter Clothes
                 </NavLink>
-              </ul>
-            ) : (
-              <ul className="menu menu-horizontal px-1">
+              ) : (
                 <NavLink
                   to="/winter-clothes"
                   className="text-md font-bold"
@@ -110,20 +122,21 @@ const Navbar = () => {
                 >
                   All Winter Clothes
                 </NavLink>
-              </ul>
-            )}
-            {currentUser ? (
-              <ul className="menu menu-horizontal ps-4">
+              )}
+            </li>
+            <li>
+              {currentUser ? (
                 <NavLink
                   to="/dashboard"
                   className="text-md font-bold hover:text-cyan-500"
                 >
                   Dashboard
                 </NavLink>
-              </ul>
-            ) : null}
-          </div>
-
+              ) : null}
+            </li>
+          </ul>
+        </div>
+        <div className="navbar-end">
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
             {currentUser ? (
               <button
@@ -141,7 +154,6 @@ const Navbar = () => {
               </NavLink>
             )}
           </motion.div>
-
           <motion.div
             className="ms-5"
             whileHover={{ scale: 1.1 }}
