@@ -11,7 +11,7 @@ const TestimonialForm = ({ onClose, testimonial, isUpdate }: any) => {
   const onSubmit = async (data: any) => {
     console.log(data);
 
-    const toastId = toast.loading("Creating...");
+    const toastId = toast.loading("Updating...");
 
     // Check if image is updated
     let imageUrl = testimonial?.image; // Default to existing image URL

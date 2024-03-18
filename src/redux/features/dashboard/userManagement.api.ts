@@ -23,17 +23,6 @@ const clothManagementApi = baseApi.injectEndpoints({
     // get single cloth
     getSingleUser: builder.query({
       query: (userId) => `/users/${userId}`,
-      // {
-      //   return { url: `/winter-clothes/${clothId}`, method: "GET" };
-      // },
-      // providesTags: ["winterCloth"],
-      // transformResponse: (response: TResponseRedux<TClothManagement[]>) => {
-      //   console.log(response);
-      //   return {
-      //     data: response.data,
-      //     meta: response.meta,
-      //   };
-      // },
     }),
   }),
 });

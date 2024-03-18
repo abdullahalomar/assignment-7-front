@@ -28,31 +28,36 @@ const commentManagementApi = baseApi.injectEndpoints({
       },
     }),
 
-    // get single cloth
-    // getSingleCloth: builder.query({
-    //   query: (clothId) => `/winter-clothes/${clothId}`,
-    // }),
+    // get single comment
+    getSingleComment: builder.query({
+      query: (commentId) => `/comments/${commentId}`,
+    }),
 
-    // update cloth
-    // updateCloth: builder.mutation({
-    //   query: ({ clothId, data }) => ({
-    //     url: `/winter-clothes/${clothId}`,
-    //     method: "PUT",
-    //     body: data,
-    //   }),
-    //   invalidatesTags: ["winterCloth"],
-    // }),
+    // update comment
+    updateComment: builder.mutation({
+      query: ({ commentId, data }) => ({
+        url: `/comments/${commentId}`,
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: ["comment"],
+    }),
 
     // delete cloth
-    // deleteCloth: builder.mutation({
-    //   query: (clothId) => ({
-    //     url: `/winter-clothes/${clothId}`,
-    //     method: "DELETE",
-    //   }),
-    //   invalidatesTags: ["winterCloth"],
-    // }),
+    deleteComment: builder.mutation({
+      query: (commentId) => ({
+        url: `/comments/${commentId}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["comment"],
+    }),
   }),
 });
 
-export const { useAddCommentMutation, useGetAllCommentsQuery } =
-  commentManagementApi;
+export const {
+  useAddCommentMutation,
+  useGetAllCommentsQuery,
+  useGetSingleCommentQuery,
+  useUpdateCommentMutation,
+  useDeleteCommentMutation,
+} = commentManagementApi;

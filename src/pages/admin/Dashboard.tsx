@@ -2,18 +2,36 @@ import { Chart } from "react-google-charts";
 import { useGetAllClothsQuery } from "../../redux/features/dashboard/clothManagement.api";
 import Loader from "../../utils/Loader";
 import { useGetAllUsersQuery } from "../../redux/features/dashboard/userManagement.api";
-import { Shirt, Users } from "lucide-react";
+import {
+  MessageCircleDashed,
+  MessageSquareCode,
+  MessageSquareMore,
+  Shirt,
+  Users,
+} from "lucide-react";
+import { useGetAllTestimonialsQuery } from "../../redux/features/dashboard/testimonialManagement.api";
+import { useGetAllCommentsQuery } from "../../redux/features/comment/commentManagement.api";
 
 const Dashboard = () => {
-  const { data: clothData, isLoading } = useGetAllClothsQuery(undefined);
+  const { data: clothData, isLoading: clothLoading } =
+    useGetAllClothsQuery(undefined);
   const { data: userData, isLoading: userLoading } =
     useGetAllUsersQuery(undefined);
+  const { data: testimonialData, isLoading: testimonialLoading } =
+    useGetAllTestimonialsQuery(undefined);
+  const { data: commentData, isLoading: commentLoading } =
+    useGetAllCommentsQuery(undefined);
 
-  if (isLoading) {
+  if (clothLoading) {
     return <Loader />;
   }
-
+  if (testimonialLoading) {
+    return <Loader />;
+  }
   if (userLoading) {
+    return <Loader />;
+  }
+  if (commentLoading) {
     return <Loader />;
   }
 
@@ -21,11 +39,17 @@ const Dashboard = () => {
 
   const totalUsers = userData?.data?.length;
 
+  const totalTestimonials = testimonialData?.data?.length;
+
+  const totalComments = commentData?.data?.length;
+
   // Prepare data for pie chart
   const chartData = [
     ["Task", "Count"],
     ["Cloths", totalCloths],
     ["Users", totalUsers],
+    ["Testimonials", totalTestimonials],
+    ["Comments", totalComments],
   ];
 
   const options = {
@@ -55,6 +79,28 @@ const Dashboard = () => {
             <h1 className="text-slate-700 text-xl font-bold">Users</h1>
             <p className="text-white text-2xl font-semibold">
               {userData?.data?.length}
+            </p>
+          </div>
+        </div>
+        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-5">
+          <div>
+            <MessageSquareCode size={50} color="white" />
+          </div>
+          <div>
+            <h1 className="text-slate-700 text-xl font-bold">Testimonials</h1>
+            <p className="text-white text-2xl font-semibold">
+              {testimonialData?.data?.length}
+            </p>
+          </div>
+        </div>
+        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-5">
+          <div>
+            <MessageCircleDashed size={50} color="white" />
+          </div>
+          <div>
+            <h1 className="text-slate-700 text-xl font-bold">Comments</h1>
+            <p className="text-white text-2xl font-semibold">
+              {commentData?.data?.length}
             </p>
           </div>
         </div>
