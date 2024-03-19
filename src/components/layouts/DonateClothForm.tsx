@@ -55,17 +55,11 @@ const DonateClothForm = ({ onClose }: any) => {
 
             <h1 className="text-xl ">user information:</h1>
             <hr />
-            {/* <p>
-              Name:{" "}
-              <span className="text-sky-600">
-                {userData?.data?.email && currentUser?.user?.email
-                  ? userData?.data?.name
-                  : ""}
-              </span>
-            </p> */}
             <p>
-              Email:{" "}
-              <span className="text-sky-600">{currentUser?.user?.email}</span>
+              Name: <span className="text-sky-600">{currentUser?.name}</span>
+            </p>
+            <p>
+              Email: <span className="text-sky-600">{currentUser?.email}</span>
             </p>
           </div>
         </div>

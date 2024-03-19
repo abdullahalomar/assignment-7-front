@@ -12,6 +12,7 @@ import light from "../../assets/images/light-mode.png";
 const Navbar = () => {
   const dispatch = useAppDispatch();
   const currentUser = useSelector(selectCurrentUser);
+  console.log(currentUser);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -48,22 +49,38 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <NavLink
-                  to="/dashboard"
-                  className="text-md font-bold hover:text-cyan-500"
-                >
-                  Dashboard
-                </NavLink>
-              </li>
-              <li>
+              {currentUser ? (
+                <li>
+                  <NavLink
+                    to="/dashboard"
+                    className="text-md font-bold hover:text-cyan-500"
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
+              ) : null}
+
+              {currentUser ? (
+                <li>
+                  <NavLink
+                    to="/winter-clothes"
+                    className="text-md font-bold hover:text-cyan-500"
+                  >
+                    All Winter Clothes
+                  </NavLink>
+                </li>
+              ) : (
                 <NavLink
                   to="/winter-clothes"
-                  className="text-md font-bold hover:text-cyan-500"
+                  className="text-md font-bold"
+                  activeClassName="cursor-not-allowed"
+                  aria-disabled="true"
+                  onClick={(e) => e.preventDefault()}
                 >
                   All Winter Clothes
                 </NavLink>
-              </li>
+              )}
+
               <li>
                 <NavLink
                   to="/community"
@@ -72,6 +89,42 @@ const Navbar = () => {
                   Community
                 </NavLink>
               </li>
+              {currentUser ? (
+                <div className="dropdown dropdown-hover">
+                  <div tabIndex={0}>
+                    <li>
+                      <NavLink
+                        to="/volunteer"
+                        className="text-md font-bold hover:text-cyan-500"
+                      >
+                        Volunteer
+                      </NavLink>
+                    </li>
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <NavLink
+                        to="/volunteer/about-us"
+                        className="text-md font-bold hover:text-cyan-500"
+                      >
+                        Our Volunteers
+                      </NavLink>
+                    </li>
+                  </ul>
+                </div>
+              ) : null}
+            </ul>
+          </div>
+          <Link to="/">
+            <img src={logo} width={100} alt="" />
+          </Link>
+        </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            {currentUser ? (
               <div className="dropdown dropdown-hover">
                 <div tabIndex={0}>
                   <li>
@@ -97,39 +150,7 @@ const Navbar = () => {
                   </li>
                 </ul>
               </div>
-            </ul>
-          </div>
-          <Link to="/">
-            <img src={logo} width={100} alt="" />
-          </Link>
-        </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <div className="dropdown dropdown-hover">
-              <div tabIndex={0}>
-                <li>
-                  <NavLink
-                    to="/volunteer"
-                    className="text-md font-bold hover:text-cyan-500"
-                  >
-                    Volunteer
-                  </NavLink>
-                </li>
-              </div>
-              <ul
-                tabIndex={0}
-                className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <NavLink
-                    to="/volunteer/about-us"
-                    className="text-md font-bold hover:text-cyan-500"
-                  >
-                    Our Volunteers
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
+            ) : null}
 
             <li>
               <NavLink

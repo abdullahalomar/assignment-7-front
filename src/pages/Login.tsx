@@ -26,7 +26,7 @@ const Login = () => {
       const user = verifyToken(res.token) as TUser;
       console.log(user);
 
-      dispatch(setUser({ user: { user }, token: res.token }));
+      dispatch(setUser({ user: res.user, token: res.token }));
       toast.success("Login successful", { id: toastId, duration: 2000 });
       navigate("/");
     } catch (error) {
@@ -67,11 +67,6 @@ const Login = () => {
                   required
                   {...register("password")}
                 />
-                {/* <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label> */}
               </div>
               <div className="form-control mt-6">
                 <button type="submit" className="btn btn-primary">
