@@ -1,9 +1,9 @@
-import AboutUs from "./AboutUs";
 import DonorTestimonial from "./DonorTestimonial";
 import Gallery from "./Gallery";
 import HeroSection from "./HeroSection";
 import VolunteerOpportunities from "./VolunteerOpportunities";
 import WeatherSafetyTips from "./WeatherSafetyTips";
+import WhatWeDo from "./WhatWeDo";
 import WinterCloths from "./WinterCloths";
 
 const home = () => {
@@ -13,7 +13,7 @@ const home = () => {
       <WinterCloths></WinterCloths>
       <DonorTestimonial></DonorTestimonial>
       <Gallery></Gallery>
-      <AboutUs></AboutUs>
+      <WhatWeDo></WhatWeDo>
       <WeatherSafetyTips></WeatherSafetyTips>
       <VolunteerOpportunities />
       {/* <SuccessStory></SuccessStory> */}

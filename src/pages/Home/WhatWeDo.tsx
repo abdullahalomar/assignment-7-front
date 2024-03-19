@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const AboutUs = () => {
+const WhatWeDo = () => {
   return (
     <div className="px-28 mb-28">
       <div className="text-center">
@@ -238,4 +238,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default WhatWeDo;

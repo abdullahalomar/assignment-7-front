@@ -72,14 +72,31 @@ const Navbar = () => {
                   Community
                 </NavLink>
               </li>
-              <li>
-                <NavLink
-                  to="/volunteer"
-                  className="text-md font-bold hover:text-cyan-500"
+              <div className="dropdown dropdown-hover">
+                <div tabIndex={0}>
+                  <li>
+                    <NavLink
+                      to="/volunteer"
+                      className="text-md font-bold hover:text-cyan-500"
+                    >
+                      Volunteer
+                    </NavLink>
+                  </li>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
-                  Volunteer
-                </NavLink>
-              </li>
+                  <li>
+                    <NavLink
+                      to="/volunteer/about-us"
+                      className="text-md font-bold hover:text-cyan-500"
+                    >
+                      Our Volunteers
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
             </ul>
           </div>
           <Link to="/">
@@ -88,14 +105,32 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li>
-              <NavLink
-                to="/volunteer"
-                className="text-md font-bold hover:text-cyan-500"
+            <div className="dropdown dropdown-hover">
+              <div tabIndex={0}>
+                <li>
+                  <NavLink
+                    to="/volunteer"
+                    className="text-md font-bold hover:text-cyan-500"
+                  >
+                    Volunteer
+                  </NavLink>
+                </li>
+              </div>
+              <ul
+                tabIndex={0}
+                className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
               >
-                Volunteer
-              </NavLink>
-            </li>
+                <li>
+                  <NavLink
+                    to="/volunteer/about-us"
+                    className="text-md font-bold hover:text-cyan-500"
+                  >
+                    Our Volunteers
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+
             <li>
               <NavLink
                 to="/community"
