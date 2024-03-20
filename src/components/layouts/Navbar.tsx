@@ -60,6 +60,17 @@ const Navbar = () => {
                 </li>
               ) : null}
 
+              <li>
+                {currentUser ? (
+                  <NavLink
+                    to="/leaderboard"
+                    className="text-md font-bold hover:text-cyan-500"
+                  >
+                    Leaderboard
+                  </NavLink>
+                ) : null}
+              </li>
+
               {currentUser ? (
                 <li>
                   <NavLink
@@ -179,6 +190,16 @@ const Navbar = () => {
                   All Winter Clothes
                 </NavLink>
               )}
+            </li>
+            <li>
+              {currentUser ? (
+                <NavLink
+                  to="/leaderboard"
+                  className="text-md font-bold hover:text-cyan-500"
+                >
+                  Leaderboard
+                </NavLink>
+              ) : null}
             </li>
             <li>
               {currentUser ? (

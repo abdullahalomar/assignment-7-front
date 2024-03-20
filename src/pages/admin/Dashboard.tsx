@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { useGetAllTestimonialsQuery } from "../../redux/features/dashboard/testimonialManagement.api";
 import { useGetAllCommentsQuery } from "../../redux/features/comment/commentManagement.api";
+import { useGetAllDonatesQuery } from "../../redux/features/donate/donateManagement.api";
 
 const Dashboard = () => {
   const { data: clothData, isLoading: clothLoading } =
@@ -21,17 +22,16 @@ const Dashboard = () => {
     useGetAllTestimonialsQuery(undefined);
   const { data: commentData, isLoading: commentLoading } =
     useGetAllCommentsQuery(undefined);
+  const { data: donationData, isLoading: donationLoading } =
+    useGetAllDonatesQuery(undefined);
 
-  if (clothLoading) {
-    return <Loader />;
-  }
-  if (testimonialLoading) {
-    return <Loader />;
-  }
-  if (userLoading) {
-    return <Loader />;
-  }
-  if (commentLoading) {
+  if (
+    clothLoading ||
+    userLoading ||
+    testimonialLoading ||
+    commentLoading ||
+    donationLoading
+  ) {
     return <Loader />;
   }
 
@@ -43,6 +43,8 @@ const Dashboard = () => {
 
   const totalComments = commentData?.data?.length;
 
+  const totalDonations = donationData?.data?.length;
+
   // Prepare data for pie chart
   const chartData = [
     ["Task", "Count"],
@@ -50,6 +52,7 @@ const Dashboard = () => {
     ["Users", totalUsers],
     ["Testimonials", totalTestimonials],
     ["Comments", totalComments],
+    ["Donations", totalDonations],
   ];
 
   const options = {
@@ -59,53 +62,62 @@ const Dashboard = () => {
 
   return (
     <div>
-      <div className="mt-20 lg:mx-20 md:mx-10 sm:mx-10 mx-5 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 md:gap-10 gap-4">
-        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-5">
+      <div className="mt-16 lg:mx-20 md:mx-10 sm:mx-10 mx-5 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 md:gap-6 gap-4">
+        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-2">
           <div>
-            <Shirt size={50} color="white" />
+            <Shirt size={40} color="white" />
           </div>
           <div>
             <h1 className="text-slate-700 text-xl font-bold">Cloths</h1>
-            <p className="text-white text-2xl font-semibold">
-              {clothData?.data?.length}
-            </p>
+            <p className="text-white text-2xl font-semibold">{totalCloths}</p>
           </div>
         </div>
-        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-5">
+        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-2">
           <div>
-            <Users size={50} color="white" />
+            <Users size={40} color="white" />
           </div>
           <div>
             <h1 className="text-slate-700 text-xl font-bold">Users</h1>
+            <p className="text-white text-2xl font-semibold">{totalUsers}</p>
+          </div>
+        </div>
+        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-2">
+          <div>
+            <MessageSquareCode size={40} color="white" />
+          </div>
+          <div>
+            <h1 className="text-slate-700 text-xl font-bold truncate">
+              Testimonials
+            </h1>
             <p className="text-white text-2xl font-semibold">
-              {userData?.data?.length}
+              {totalTestimonials}
             </p>
           </div>
         </div>
-        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-5">
+        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-2">
           <div>
-            <MessageSquareCode size={50} color="white" />
-          </div>
-          <div>
-            <h1 className="text-slate-700 text-xl font-bold">Testimonials</h1>
-            <p className="text-white text-2xl font-semibold">
-              {testimonialData?.data?.length}
-            </p>
-          </div>
-        </div>
-        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-5">
-          <div>
-            <MessageCircleDashed size={50} color="white" />
+            <MessageCircleDashed size={40} color="white" />
           </div>
           <div>
             <h1 className="text-slate-700 text-xl font-bold">Comments</h1>
+            <p className="text-white text-2xl font-semibold">{totalComments}</p>
+          </div>
+        </div>
+        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-2">
+          <div>
+            <MessageCircleDashed size={40} color="white" />
+          </div>
+          <div>
+            <h1 className="text-slate-700 text-xl font-bold truncate">
+              Donations
+            </h1>
             <p className="text-white text-2xl font-semibold">
-              {commentData?.data?.length}
+              {totalDonations}
             </p>
           </div>
         </div>
       </div>
-      <div className="mt-10">
+      <div className="mt-4">
         <Chart
           chartType="PieChart"
           data={chartData}

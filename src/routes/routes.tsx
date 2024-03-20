@@ -15,6 +15,7 @@ import AllTestimonials from "../pages/admin/Testimonials/AllTestimonials";
 import Community from "../pages/Home/Community";
 import Volunteer from "../pages/Home/Volunteers/Volunteer";
 import AboutUs from "../pages/Home/Volunteers/AboutUs";
+import Leaderboard from "../pages/Home/Leaderboard";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "community",
         element: <Community />,
+      },
+      {
+        path: "leaderboard",
+        element: <Leaderboard />,
       },
     ],
   },

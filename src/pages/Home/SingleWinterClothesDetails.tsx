@@ -50,7 +50,7 @@ const SingleWinterClothesDetails = () => {
           </p>
           <div className="card-actions justify-end">
             {/* modal */}
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
+
             <button
               className="btn btn-primary"
               onClick={() => {

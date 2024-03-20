@@ -110,7 +110,7 @@ const Community = () => {
             {/* Comment content */}
             <div className="">
               <div className="badge badge-primary font-semibold">
-                {comment.name}
+                {currentUser?.name}
               </div>
               <p className="text-md text-white font-medium me-1 mt-3">
                 {comment.description}
