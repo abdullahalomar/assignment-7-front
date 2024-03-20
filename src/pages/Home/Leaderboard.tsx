@@ -12,7 +12,7 @@ const Leaderboard = () => {
     (donor1, donor2) => donor2.amount - donor1.amount
   );
   return (
-    <div className="mx-28 mt-14 mb-20">
+    <div className="mx-28 pt-14 pb-20">
       <h1 className="text-3xl font-semibold text-center mb-7">Top Donor's</h1>
       <div className="overflow-x-auto">
         <table className="table">

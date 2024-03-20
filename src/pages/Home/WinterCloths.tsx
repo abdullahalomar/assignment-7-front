@@ -41,13 +41,16 @@ const WinterCloths = () => {
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">
-                {cloth.title}
+                <span className="text-black">{cloth.title}</span>
+
                 <div className="badge badge-secondary">{cloth.size}</div>
               </h2>
-              <p className="font-semibold">
+
+              <p className="font-semibold text-black">
                 Category:{" "}
                 <span className="text-blue-600">{cloth.category}</span>
               </p>
+
               <div className="card-actions mt-3">
                 {currentUser ? (
                   <Link

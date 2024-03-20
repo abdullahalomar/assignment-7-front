@@ -3,6 +3,7 @@ import { useGetAllClothsQuery } from "../../redux/features/dashboard/clothManage
 import Loader from "../../utils/Loader";
 import { useGetAllUsersQuery } from "../../redux/features/dashboard/userManagement.api";
 import {
+  HandCoins,
   MessageCircleDashed,
   MessageSquareCode,
   MessageSquareMore,
@@ -105,7 +106,7 @@ const Dashboard = () => {
         </div>
         <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-2">
           <div>
-            <MessageCircleDashed size={40} color="white" />
+            <HandCoins size={40} color="white" />
           </div>
           <div>
             <h1 className="text-slate-700 text-xl font-bold truncate">

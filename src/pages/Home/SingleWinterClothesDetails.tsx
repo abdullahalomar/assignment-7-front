@@ -30,12 +30,12 @@ const SingleWinterClothesDetails = () => {
   const { image, title, category, size, description } = clothData.data;
 
   return (
-    <div className="my-20 px-60">
+    <div className="py-20 px-10 sm:px-20 md:px-40 lg:px-60">
       <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure>
           <img src={image} className="w-[500px]" alt="Cloth" />
         </figure>
-        <div className="card-body">
+        <div className="card-body text-black">
           <h2 className="card-title">
             Title: <span className="text-sky-600">{title}</span>
           </h2>

@@ -32,7 +32,7 @@ const Volunteer = () => {
   };
   return (
     <div>
-      <div className="mx-28 mt-14 mb-20">
+      <div className="mx-28 pt-14 pb-20">
         <h1 className="text-2xl font-semibold text-center pb-8">
           Add Volunteer
         </h1>
@@ -103,7 +103,7 @@ const Volunteer = () => {
               <option value="Tangail">Tangail</option>
             </select>
           </label>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary w-full max-w-xl">
             Add Volunteer
           </button>
         </form>

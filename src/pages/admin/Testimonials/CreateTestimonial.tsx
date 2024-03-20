@@ -84,7 +84,7 @@ const CreateTestimonial = () => {
           <div>
             <span className="label-text">Location</span> <br />
             <select
-              className="select select-bordered w-full max-w-xs mt-3"
+              className="select select-bordered w-full max-w-xl mt-3"
               {...register("location")}
             >
               <option value="Dhaka">Dhaka</option>
@@ -121,7 +121,7 @@ const CreateTestimonial = () => {
             <br />
             <textarea
               placeholder="Description"
-              className="textarea textarea-bordered textarea-xs w-full max-w-xs mt-3"
+              className="textarea textarea-bordered textarea-xs w-full max-w-xl mt-3"
               {...register("description")}
             ></textarea>
           </div>

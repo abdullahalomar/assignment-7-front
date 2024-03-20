@@ -5,8 +5,10 @@ import forth from "../../assets/images/hero-image/forth.jpg";
 import fifth from "../../assets/images/hero-image/fifth.jpg";
 import seventh from "../../assets/images/hero-image/seventh.jpg";
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
 
 const HeroSection = () => {
+  const darkMode = useSelector((state) => state.darkMode.darkMode);
   return (
     <div>
       <div className="hero min-h-screen bg-base-200 relative">
@@ -20,9 +22,15 @@ const HeroSection = () => {
 
             <ul className="timeline timeline-vertical">
               <li>
-                <div className="timeline-start timeline-box hover:bg-sky-200">
-                  Provide winter clothes to those in need.
-                </div>
+                {darkMode ? (
+                  <div className="timeline-start timeline-box text-black bg-white shadow-xl">
+                    Provide winter clothes to those in need.
+                  </div>
+                ) : (
+                  <div className="timeline-start timeline-box shadow-xl">
+                    Provide winter clothes to those in need.
+                  </div>
+                )}
                 <div className="timeline-middle">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -55,15 +63,27 @@ const HeroSection = () => {
                     />
                   </svg>
                 </div>
-                <div className="timeline-end timeline-box hover:bg-sky-200">
-                  Engage communities through volunteerism and partnerships.
-                </div>
+                {darkMode ? (
+                  <div className="timeline-end timeline-box text-black bg-white shadow-xl">
+                    Engage communities through volunteerism and partnerships.
+                  </div>
+                ) : (
+                  <div className="timeline-end timeline-box shadow-xl">
+                    Engage communities through volunteerism and partnerships.
+                  </div>
+                )}
                 <hr className="bg-primary" />
               </li>
               <li>
-                <div className="timeline-start timeline-box hover:bg-sky-200">
-                  Ensure accessibility and inclusivity for all recipients.
-                </div>
+                {darkMode ? (
+                  <div className="timeline-start timeline-box text-black bg-white shadow-xl">
+                    Ensure accessibility and inclusivity for all recipients.
+                  </div>
+                ) : (
+                  <div className="timeline-start timeline-box shadow-xl">
+                    Ensure accessibility and inclusivity for all recipients.
+                  </div>
+                )}
                 <div className="timeline-middle">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -96,15 +116,27 @@ const HeroSection = () => {
                     />
                   </svg>
                 </div>
-                <div className="timeline-end timeline-box hover:bg-sky-200">
-                  Promote sustainability in clothing practices.
-                </div>
+                {darkMode ? (
+                  <div className="timeline-end timeline-box text-black bg-white shadow-xl">
+                    Promote sustainability in clothing practices.
+                  </div>
+                ) : (
+                  <div className="timeline-end timeline-box shadow-xl">
+                    Promote sustainability in clothing practices.
+                  </div>
+                )}
                 <hr className="bg-primary" />
               </li>
               <li>
-                <div className="timeline-start timeline-box hover:bg-sky-200">
-                  Empower communities with winter safety education.
-                </div>
+                {darkMode ? (
+                  <div className="timeline-start timeline-box text-black bg-white shadow-xl">
+                    Empower communities with winter safety education.
+                  </div>
+                ) : (
+                  <div className="timeline-start timeline-box shadow-xl">
+                    Empower communities with winter safety education.
+                  </div>
+                )}
                 <div className="timeline-middle">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

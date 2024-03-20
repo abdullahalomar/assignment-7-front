@@ -25,7 +25,7 @@ const AboutUs = () => {
     }
   };
   return (
-    <div className="mx-28 mt-14 mb-20">
+    <div className="mx-28 pt-14 pb-20">
       <h1 className="text-3xl font-semibold text-center mb-5">
         Our Volunteers
       </h1>
@@ -44,7 +44,7 @@ const AboutUs = () => {
           </thead>
           <tbody>
             {volunteers?.data.map((volunteer, index) => (
-              <tr key={index}>
+              <tr key={volunteer._id}>
                 <th>{index + 1}</th>
                 <td>{volunteer.name}</td>
                 <td>{volunteer.email} </td>

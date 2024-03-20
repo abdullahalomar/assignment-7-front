@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
 
 const WhatWeDo = () => {
+  const darkMode = useSelector((state) => state.darkMode.darkMode);
   return (
     <div className="px-28 mb-28">
       <div className="text-center">
@@ -16,116 +18,113 @@ const WhatWeDo = () => {
       </div>
       <div className="mt-8 flex flex-wrap lg:flex-nowrap md:flex-wrap sm:flex-wrap justify-between items-center">
         <div className="lg:mb-0 md:mb-10 sm:mb-10 mb-10">
-          {/* one */}
-          <motion.div
-            animate={{ x: 100 }}
-            transition={{
-              repeat: 1,
-              repeatType: "reverse",
-              duration: 2,
-            }}
-            className="collapse bg-base-200"
-          >
-            <input type="checkbox" className="peer" />
-            <div className="collapse-title bg-primary text-primary-content peer-checked:bg-gradient-to-r from-blue-600 to-cyan-500  peer-checked:text-secondary-content">
-              <p className="text-xl text-white">Accessibility</p>
-            </div>
-            <div className="collapse-content bg-primary text-primary-content peer-checked:bg-gradient-to-r from-blue-500 to-cyan-500  peer-checked:text-secondary-content">
-              <p className="text-xl text-white">
-                We strive to make winter clothes easily accessible to
-                underserved populations such as the homeless, low-income
-                families, and refugees.
-              </p>
-            </div>
-          </motion.div>
-          {/* two */}
-          <motion.div
-            animate={{ x: 100 }}
-            transition={{
-              repeat: 1,
-              repeatType: "mirror",
-              duration: 2,
-            }}
-            className="collapse bg-base-200 mt-3"
-          >
-            <input type="checkbox" className="peer" />
-            <div className="collapse-title bg-primary text-primary-content peer-checked:bg-gradient-to-r from-blue-600 to-cyan-500  peer-checked:text-secondary-content">
-              <p className="text-xl text-white">Efficiency: </p>
-            </div>
-            <div className="collapse-content bg-primary text-primary-content peer-checked:bg-gradient-to-r from-blue-500 to-cyan-500  peer-checked:text-secondary-content">
-              <p className="text-xl text-white">
-                Our platform optimizes distribution logistics, inventory
-                tracking, and volunteer coordination to ensure prompt and
-                effective delivery of donated clothing.
-              </p>
-            </div>
-          </motion.div>
-          {/* three */}
-          <motion.div
-            animate={{ x: 100 }}
-            transition={{
-              repeat: 1,
-              repeatType: "reverse",
-              duration: 2,
-            }}
-            className="collapse bg-base-200 mt-3"
-          >
-            <input type="checkbox" className="peer" />
-            <div className="collapse-title bg-primary text-primary-content peer-checked:bg-gradient-to-r from-blue-600 to-cyan-500  peer-checked:text-secondary-content">
-              <p className="text-xl text-white">Equity: </p>
-            </div>
-            <div className="collapse-content bg-primary text-primary-content peer-checked:bg-gradient-to-r from-blue-500 to-cyan-500  peer-checked:text-secondary-content">
-              <p className="text-xl text-white">
-                We prioritize marginalized communities, allocating resources
-                based on need and addressing disparities in access to warm
-                clothing.
-              </p>
-            </div>
-          </motion.div>
-          {/* four */}
-          <motion.div
-            animate={{ x: 100 }}
-            transition={{
-              repeat: 1,
-              repeatType: "mirror",
-              duration: 2,
-            }}
-            className="collapse bg-base-200 mt-3"
-          >
-            <input type="checkbox" className="peer" />
-            <div className="collapse-title bg-primary text-primary-content peer-checked:bg-gradient-to-r from-blue-600 to-cyan-500  peer-checked:text-secondary-content">
-              <p className="text-xl text-white">Community Engagement:</p>
-            </div>
-            <div className="collapse-content bg-primary text-primary-content peer-checked:bg-gradient-to-r from-blue-500 to-cyan-500  peer-checked:text-secondary-content">
-              <p className="text-xl text-white">
-                We mobilize individuals, businesses, and organizations to
-                contribute to winter clothes drives and volunteer initiatives,
-                amplifying our impact and fostering resilience.
-              </p>
-            </div>
-          </motion.div>
-          {/* five */}
-          <motion.div
-            animate={{ x: 100 }}
-            transition={{
-              repeat: 1,
-              repeatType: "reverse",
-              duration: 2,
-            }}
-            className="collapse bg-base-200 mt-3"
-          >
-            <input type="checkbox" className="peer" />
-            <div className="collapse-title bg-primary text-primary-content peer-checked:bg-gradient-to-r from-blue-600 to-cyan-500  peer-checked:text-secondary-content">
-              <p className="text-xl text-white">Sustainability:</p>
-            </div>
-            <div className="collapse-content bg-primary text-primary-content peer-checked:bg-gradient-to-r from-blue-500 to-cyan-500  peer-checked:text-secondary-content">
-              <p className="text-xl text-white">
-                Promoting reuse, recycling, and responsible disposal practices,
-                we minimize waste and environmental impact while maximizing
-                clothing longevity.
-              </p>
-            </div>
-          </motion.div>
+          <div className="join join-vertical w-full">
+            <motion.div
+              animate={{ x: 100 }}
+              transition={{
+                repeat: 1,
+                repeatType: "reverse",
+                duration: 2,
+              }}
+              className="collapse collapse-arrow join-item border border-sky-300"
+            >
+              <input type="radio" name="my-accordion-4" defaultChecked />
+              <div className="collapse-title text-xl font-medium bg-gradient-to-r from-cyan-500 to-blue-500">
+                Accessibility
+              </div>
+              <div className="collapse-content">
+                <p>
+                  We strive to make winter clothes easily accessible to
+                  underserved populations such as the homeless, low-income
+                  families, and refugees.
+                </p>
+              </div>
+            </motion.div>
+            <motion.div
+              animate={{ x: 100 }}
+              transition={{
+                repeat: 1,
+                repeatType: "reverse",
+                duration: 2,
+              }}
+              className="collapse collapse-arrow join-item border border-sky-300"
+            >
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium bg-gradient-to-r from-cyan-500 to-blue-500">
+                Efficiency
+              </div>
+              <div className="collapse-content">
+                <p>
+                  Our platform optimizes distribution logistics, inventory
+                  tracking, and volunteer coordination to ensure prompt and
+                  effective delivery of donated clothing.
+                </p>
+              </div>
+            </motion.div>
+            <motion.div
+              animate={{ x: 100 }}
+              transition={{
+                repeat: 1,
+                repeatType: "reverse",
+                duration: 2,
+              }}
+              className="collapse collapse-arrow join-item border border-sky-300"
+            >
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium bg-gradient-to-r from-cyan-500 to-blue-500">
+                Equity
+              </div>
+              <div className="collapse-content">
+                <p>
+                  We prioritize marginalized communities, allocating resources
+                  based on need and addressing disparities in access to warm
+                  clothing.
+                </p>
+              </div>
+            </motion.div>
+            <motion.div
+              animate={{ x: 100 }}
+              transition={{
+                repeat: 1,
+                repeatType: "reverse",
+                duration: 2,
+              }}
+              className="collapse collapse-arrow join-item border border-sky-300"
+            >
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium bg-gradient-to-r from-cyan-500 to-blue-500">
+                Community Engagement
+              </div>
+              <div className="collapse-content">
+                <p>
+                  We mobilize individuals, businesses, and organizations to
+                  contribute to winter clothes drives and volunteer initiatives,
+                  amplifying our impact and fostering resilience.
+                </p>
+              </div>
+            </motion.div>
+            <motion.div
+              animate={{ x: 100 }}
+              transition={{
+                repeat: 1,
+                repeatType: "reverse",
+                duration: 2,
+              }}
+              className="collapse collapse-arrow join-item border border-sky-300"
+            >
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title text-xl font-medium bg-gradient-to-r from-cyan-500 to-blue-500">
+                Sustainability
+              </div>
+              <div className="collapse-content">
+                <p>
+                  Promoting reuse, recycling, and responsible disposal
+                  practices, we minimize waste and environmental impact while
+                  maximizing clothing longevity.
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
         <motion.div
           animate={{ scale: [0, 1, 0.5, 1] }}
@@ -150,10 +149,17 @@ const WhatWeDo = () => {
                   />
                 </svg>
               </div>
-              <div className="timeline-end timeline-box  hover:bg-sky-400 hover:text-white">
-                Protecting vulnerable individuals from cold weather-related
-                health risks like hypothermia and frostbite
-              </div>
+              {darkMode ? (
+                <div className="timeline-end timeline-box bg-sky-400 hover:bg-white hover:text-black">
+                  Protecting vulnerable individuals from cold weather-related
+                  health risks like hypothermia and frostbite
+                </div>
+              ) : (
+                <div className="timeline-end timeline-box  hover:bg-sky-400 hover:text-white">
+                  Protecting vulnerable individuals from cold weather-related
+                  health risks like hypothermia and frostbite
+                </div>
+              )}
               <hr />
             </li>
             <li>
@@ -175,10 +181,17 @@ const WhatWeDo = () => {
                   />
                 </svg>
               </div>
-              <div className="timeline-end timeline-box hover:bg-sky-400 hover:text-white">
-                Promoting comfort and confidence among recipients, enhancing
-                their dignity and well-being during harsh conditions.
-              </div>
+              {darkMode ? (
+                <div className="timeline-end timeline-box bg-sky-400 hover:bg-white hover:text-black">
+                  Promoting comfort and confidence among recipients, enhancing
+                  their dignity and well-being during harsh conditions.
+                </div>
+              ) : (
+                <div className="timeline-end timeline-box hover:bg-sky-400 hover:text-white">
+                  Promoting comfort and confidence among recipients, enhancing
+                  their dignity and well-being during harsh conditions.
+                </div>
+              )}
               <hr />
             </li>
             <li>
@@ -200,10 +213,17 @@ const WhatWeDo = () => {
                   />
                 </svg>
               </div>
-              <div className="timeline-end timeline-box hover:bg-sky-400 hover:text-white">
-                Fostering solidarity and mutual support, strengthening social
-                cohesion within local communities.
-              </div>
+              {darkMode ? (
+                <div className="timeline-end timeline-box bg-sky-400 hover:bg-white hover:text-black">
+                  Fostering solidarity and mutual support, strengthening social
+                  cohesion within local communities.
+                </div>
+              ) : (
+                <div className="timeline-end timeline-box hover:bg-sky-400 hover:text-white">
+                  Fostering solidarity and mutual support, strengthening social
+                  cohesion within local communities.
+                </div>
+              )}
               <hr />
             </li>
             <li>
@@ -225,10 +245,17 @@ const WhatWeDo = () => {
                   />
                 </svg>
               </div>
-              <div className="timeline-end timeline-box hover:bg-sky-400 hover:text-white">
-                Contributing to sustainable fashion practices, reducing
-                environmental impact and promoting ethical consumption.
-              </div>
+              {darkMode ? (
+                <div className="timeline-end timeline-box bg-sky-400 hover:bg-white hover:text-black ">
+                  Contributing to sustainable fashion practices, reducing
+                  environmental impact and promoting ethical consumption.
+                </div>
+              ) : (
+                <div className="timeline-end timeline-box hover:bg-sky-400 hover:text-white">
+                  Contributing to sustainable fashion practices, reducing
+                  environmental impact and promoting ethical consumption.
+                </div>
+              )}
               <hr />
             </li>
           </ul>
