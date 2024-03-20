@@ -7,11 +7,11 @@ import {
 import { TResponse } from "../../types/global";
 import { toast } from "sonner";
 import Loader from "../../utils/Loader";
-// import { CircleEllipsis } from "lucide-react";
+import { CircleEllipsis, FilePenLine, Trash2 } from "lucide-react";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../redux/features/auth/authSlice";
-// import { useState } from "react";
-// import UpdateCommentModal from "../../components/layouts/UpdateCommentModal";
+import { useState } from "react";
+import UpdateCommentModal from "../../components/layouts/UpdateCommentModal";
 
 const Community = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -20,27 +20,27 @@ const Community = () => {
   const { data: comments, isLoading: commentLoading } =
     useGetAllCommentsQuery(undefined);
 
-  // const [deleteCommentMutation] = useDeleteCommentMutation();
+  const [deleteCommentMutation] = useDeleteCommentMutation();
   const currentUser = useSelector(selectCurrentUser);
-  // const [editCommentId, setEditCommentId] = useState();
-  // const [showCommentModal, setShowCommentModal] = useState(false);
+  const [editCommentId, setEditCommentId] = useState();
+  const [showCommentModal, setShowCommentModal] = useState(false);
 
   if (commentLoading) {
     return <Loader />;
   }
 
-  // const onUpdateModalClose = () => {
-  //   setShowCommentModal(false);
-  // };
+  const onUpdateModalClose = () => {
+    setShowCommentModal(false);
+  };
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     console.log(data);
 
-    const toastId = toast.loading("Creating...");
+    const toastId = toast.loading("Commenting...");
 
     try {
       const commentData = {
-        name: data.name,
+        name: currentUser?.name,
         description: data.description,
       };
 
@@ -58,15 +58,15 @@ const Community = () => {
   };
 
   // delete comment
-  // const handleDeleteComment = async (commentId: string) => {
-  //   const toastId = toast.loading("Deleting...");
-  //   try {
-  //     await deleteCommentMutation(commentId);
-  //     toast.success("Delete Successfully", { id: toastId, duration: 2000 });
-  //   } catch (error) {
-  //     console.error("Error deleting Comment:", error);
-  //   }
-  // };
+  const handleDeleteComment = async (commentId: string) => {
+    const toastId = toast.loading("Deleting...");
+    try {
+      await deleteCommentMutation(commentId);
+      toast.success("Delete Successfully", { id: toastId, duration: 2000 });
+    } catch (error) {
+      console.error("Error deleting Comment:", error);
+    }
+  };
 
   return (
     <div className="py-20 px-28">
@@ -81,7 +81,8 @@ const Community = () => {
                 type="text"
                 placeholder="Name"
                 className="input input-bordered input-info w-full max-w-xs"
-                {...register("name", { required: true, maxLength: 20 })}
+                value={currentUser?.name || ""}
+                disabled
               />{" "}
             </div>
             <div>
@@ -101,29 +102,29 @@ const Community = () => {
           )}
         </form>
       </div>
-      <div className="mt-5 lg:flex lg:flex-wrap md:flex md:flex-wrap sm:flex sm:flex-wrap flex flex-wrap gap-7">
+      <div className="mt-5 ">
         {comments?.data.map((comment) => (
-          <div
-            key={comment._id}
-            className="bg-gray-500 p-4 rounded-lg outline outline-slate-600 outline-1 outline-offset-2 relative lg:w-[480px]"
-          >
+          <div key={comment._id} className="">
             {/* Comment content */}
-            <div className="">
-              <div className="badge badge-primary font-semibold">
-                {currentUser?.name}
-              </div>
-              <p className="text-md text-white font-medium me-1 mt-3">
-                {comment.description}
-              </p>
-              {/* {currentUser ? (
-                <div className="dropdown dropdown-top p-2 rounded-full hover:bg-gray-700 absolute top-0 right-0">
-                  <div tabIndex={0}>
-                    <CircleEllipsis color="white" />
+            <div className="chat chat-start relative w-full min-w-[340px] mb-5">
+              <div className="dropdown dropdown-hover absolute z-10 top-3 right-[9.8%]">
+                {currentUser && currentUser.name === comment.name && (
+                  <div tabIndex={0} className="m-1">
+                    <CircleEllipsis
+                      size={25}
+                      color="white"
+                      onClick={() => {
+                        setShowCommentModal(true);
+                        setEditCommentId(comment._id);
+                      }}
+                    />
                   </div>
-                  <ul
-                    tabIndex={0}
-                    className="dropdown-content z-[1] menu p-2 shadow bg-slate-200 rounded-box w-52"
-                  >
+                )}
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content z-[1] menu p-2 shadow bg-slate-300 rounded-box"
+                >
+                  {currentUser && currentUser?.name === comment.name && (
                     <li>
                       <button
                         onClick={() => {
@@ -131,28 +132,35 @@ const Community = () => {
                           setEditCommentId(comment._id);
                         }}
                       >
-                        Edit
+                        <FilePenLine color="black" />
                       </button>
                     </li>
+                  )}
+                  {currentUser && currentUser?.name === comment.name && (
                     <li>
                       <button onClick={() => handleDeleteComment(comment._id)}>
-                        Delete
+                        <Trash2 color="red" />
                       </button>
                     </li>
-                  </ul>
-                </div>
-              ) : null} */}
+                  )}
+                </ul>
+              </div>
+
+              <div className="chat-bubble me-8">{comment.description}</div>
+              <div className="opacity-100 bg-gray-300 rounded-xl p-2 mt-1">
+                <span className="font-semibold text-black">{comment.name}</span>
+              </div>
             </div>
           </div>
         ))}
       </div>
-      {/* {showCommentModal && (
+      {showCommentModal && (
         <UpdateCommentModal
           onClose={onUpdateModalClose}
           commentId={editCommentId}
           isUpdate={true}
         />
-      )} */}
+      )}
     </div>
   );
 };
