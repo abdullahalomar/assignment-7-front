@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/cloth.png";
 import { motion } from "framer-motion";
 import { useAppDispatch } from "../../redux/hooks";
@@ -12,9 +12,11 @@ import light from "../../assets/images/light-mode.png";
 const Navbar = () => {
   const dispatch = useAppDispatch();
   const currentUser = useSelector(selectCurrentUser);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(logout());
+    navigate("/");
   };
 
   const darkMode = useSelector((state) => state.darkMode.darkMode);

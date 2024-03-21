@@ -107,7 +107,11 @@ const Community = () => {
           <div key={comment._id} className="">
             {/* Comment content */}
 
-            <div className="card w-[220px] sm:w-[390px] md:w-[290px] lg:w-[400px] bg-gradient-to-r from-neutral to-indigo-300 shadow-xl relative">
+            <div
+              data-aos="fade-up"
+              data-aos-anchor-placement="top-bottom"
+              className="card w-[220px] sm:w-[390px] md:w-[290px] lg:w-[400px] bg-gradient-to-r from-neutral to-indigo-300 shadow-xl relative"
+            >
               <div className="card-body">
                 <h2 className="card-title">{comment.name}</h2>
                 <p>{comment.description}</p>
