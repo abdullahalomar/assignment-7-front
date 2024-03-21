@@ -22,16 +22,16 @@ const Community = () => {
 
   const [deleteCommentMutation] = useDeleteCommentMutation();
   const currentUser = useSelector(selectCurrentUser);
-  const [editCommentId, setEditCommentId] = useState();
-  const [showCommentModal, setShowCommentModal] = useState(false);
+  // const [editCommentId, setEditCommentId] = useState();
+  // const [showCommentModal, setShowCommentModal] = useState(false);
 
   if (commentLoading) {
     return <Loader />;
   }
 
-  const onUpdateModalClose = () => {
-    setShowCommentModal(false);
-  };
+  // const onUpdateModalClose = () => {
+  //   setShowCommentModal(false);
+  // };
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     console.log(data);
@@ -71,7 +71,7 @@ const Community = () => {
   return (
     <div className="py-20 px-28">
       <div className="w-full mb-10">
-        <form className="" onSubmit={handleSubmit(onSubmit)}>
+        <form className="text-black" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label className="input input-bordered flex items-center gap-2">
               <input
@@ -102,32 +102,26 @@ const Community = () => {
       </div>
       <hr />
       <h1 className="text-xl text-center">Appreciation's for the support</h1>
-      <div className="mt-7">
+      <div className="mt-7 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:place-content-evenly lg:place-items-center gap-10 sm:gap-10 md:gap-10 lg:gap-5">
         {comments?.data.map((comment) => (
           <div key={comment._id} className="">
             {/* Comment content */}
-            <div
-              className="chat chat-start relative w-full min-w-[200px] mb-5"
-              data-aos="fade-up"
-              data-aos-anchor-placement="bottom-bottom"
-            >
-              <div className="dropdown dropdown-hover absolute z-10 top-3 right-[9.8%]">
-                {currentUser && currentUser.name === comment.name && (
-                  <div tabIndex={0} className="m-1">
-                    <CircleEllipsis
-                      size={25}
-                      color="white"
-                      onClick={() => {
-                        setShowCommentModal(true);
-                        setEditCommentId(comment._id);
-                      }}
-                    />
-                  </div>
-                )}
-                <ul
-                  tabIndex={0}
-                  className="dropdown-content z-[1] menu p-2 shadow bg-slate-300 rounded-box"
-                >
+
+            <div className="card w-[220px] sm:w-[390px] md:w-[290px] lg:w-[400px] bg-gradient-to-r from-neutral to-indigo-300 shadow-xl relative">
+              <div className="card-body">
+                <h2 className="card-title">{comment.name}</h2>
+                <p>{comment.description}</p>
+              </div>
+
+              <div className="dropdown dropdown-top absolute z-10 top-2 right-2">
+                <div tabIndex={0} role="button" className="">
+                  {currentUser && currentUser.name === comment.name && (
+                    <div tabIndex={0} className="m-1">
+                      <CircleEllipsis size={25} color="black" />
+                    </div>
+                  )}
+                </div>
+                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2">
                   {currentUser && currentUser?.name === comment.name && (
                     <li>
                       <button onClick={() => handleDeleteComment(comment._id)}>
@@ -137,22 +131,17 @@ const Community = () => {
                   )}
                 </ul>
               </div>
-
-              <div className="chat-bubble me-8">{comment.description}</div>
-              <div className="opacity-100 bg-gray-300 rounded-xl p-2 mt-1">
-                <span className="font-semibold text-black">{comment.name}</span>
-              </div>
             </div>
           </div>
         ))}
       </div>
-      {showCommentModal && (
+      {/* {showCommentModal && (
         <UpdateCommentModal
           onClose={onUpdateModalClose}
           commentId={editCommentId}
           isUpdate={true}
         />
-      )}
+      )} */}
     </div>
   );
 };

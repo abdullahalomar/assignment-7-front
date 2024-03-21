@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const WhatWeDo = () => {
   const darkMode = useSelector((state) => state.darkMode.darkMode);
   return (
-    <div className="px-28 mb-28">
+    <div className="px-10 sm:px-20 md:px-28 lg:px-28 mb-28">
       <div className="text-center">
         <h1 className="text-4xl font-semibold mb-5">What We Do</h1>
         <h1 className="text-2xl font-semibold mb-5 text-slate-600">Mission</h1>
