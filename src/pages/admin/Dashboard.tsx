@@ -64,8 +64,8 @@ const Dashboard = () => {
   return (
     <div>
       <div className="mt-16 lg:mx-20 md:mx-10 sm:mx-10 mx-5 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 md:gap-6 gap-4">
-        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-2">
-          <div>
+        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 lg:flex md:flex sm:flex-wrap flex-wrap justify-center items-center gap-2">
+          <div className="px-16 lg:px-0 md:px-0 sm:px-16">
             <Shirt size={40} color="white" />
           </div>
           <div>
@@ -73,8 +73,8 @@ const Dashboard = () => {
             <p className="text-white text-2xl font-semibold">{totalCloths}</p>
           </div>
         </div>
-        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-2">
-          <div>
+        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 lg:flex md:flex sm:flex-wrap flex-wrap justify-center items-center gap-2">
+          <div className="px-16 lg:px-0 md:px-0 sm:px-16">
             <Users size={40} color="white" />
           </div>
           <div>
@@ -82,8 +82,8 @@ const Dashboard = () => {
             <p className="text-white text-2xl font-semibold">{totalUsers}</p>
           </div>
         </div>
-        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-2">
-          <div>
+        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 lg:flex md:flex sm:flex-wrap flex-wrap justify-center items-center gap-2">
+          <div className="px-16 lg:px-0 md:px-0 sm:px-16">
             <MessageSquareCode size={40} color="white" />
           </div>
           <div>
@@ -95,8 +95,8 @@ const Dashboard = () => {
             </p>
           </div>
         </div>
-        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-2">
-          <div>
+        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 lg:flex md:flex sm:flex-wrap flex-wrap justify-center items-center gap-2">
+          <div className="px-16 lg:px-0 md:px-0 sm:px-16">
             <MessageCircleDashed size={40} color="white" />
           </div>
           <div>
@@ -104,8 +104,8 @@ const Dashboard = () => {
             <p className="text-white text-2xl font-semibold">{totalComments}</p>
           </div>
         </div>
-        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 flex justify-center items-center gap-2">
-          <div>
+        <div className="bg-cyan-400 rounded-xl text-center py-8 outline outline-offset-2 outline-2 outline-slate-500 lg:flex md:flex sm:flex-wrap flex-wrap justify-center items-center gap-2">
+          <div className="px-16 lg:px-0 md:px-0 sm:px-16">
             <HandCoins size={40} color="white" />
           </div>
           <div>
@@ -118,12 +118,11 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className="mt-4">
+      <div className="mt-4 w-full max-w-96 sm:max-w-96 md:max-w-[90%] lg:max-w-[100%]">
         <Chart
           chartType="PieChart"
           data={chartData}
           options={options}
-          width={"100%"}
           height={"400px"}
         />
       </div>

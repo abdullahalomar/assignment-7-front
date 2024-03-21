@@ -13,9 +13,9 @@
 3. Rename `.env.example` to `.env`.
 4. Run the server using `npm start`.
 
-### Project Name: Assignment-5 (Distribution of Winter Clothes Management Platform )
+### Project Name: Assignment-7 (Distribution of Winter Clothes Management Platform )
 
-### Live url: [Distribution of Winter Clothes Management Platform](https://assignment-6-clothex.vercel.app/)
+### Live url: [Distribution of Winter Clothes Management Platform](https://clothex-web.vercel.app/)
 
 ### Project Features:
 
@@ -27,13 +27,21 @@
 - About Us
 - cold weather safety tips
 - Volunteer Opportunities
+- Leaderboard
+- Community
+- Volunteer
+- About Volunteer
 - Footer
+
+- Dynamic Theme Switching
 
 ### Technology
 
 - React
 - Typescript
 - Redux
-- tailwind css
+- Tailwind css
+- Daisy UI (Tailwind framework)
 - React hook form
 - Framer motion (animation)
+- AOS (animation)

@@ -15,7 +15,11 @@ const AllWinterClothes = () => {
     <div className="py-20">
       <div className="flex flex-wrap sm:flex-wrap md:flex-wrap lg:flex-wrap gap-10 md:mx-3 mx-4 justify-center">
         {allClothesData?.map((cloth) => (
-          <div className="card w-96 bg-base-100 shadow-xl">
+          <div
+            key={cloth._id}
+            className="card w-96 bg-base-100 shadow-xl"
+            data-aos="zoom-in-right"
+          >
             <figure className="px-10 pt-10">
               <img src={cloth.image} alt="cloth" className="rounded-xl" />
             </figure>

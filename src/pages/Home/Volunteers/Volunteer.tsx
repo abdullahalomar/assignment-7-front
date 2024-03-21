@@ -32,7 +32,7 @@ const Volunteer = () => {
   };
   return (
     <div>
-      <div className="mx-28 pt-14 pb-20">
+      <div className="mx-10 sm:mx-20 md:mx-28 lg:mx-28 pt-14 pb-20">
         <h1 className="text-2xl font-semibold text-center pb-8">
           Add Volunteer
         </h1>
@@ -48,7 +48,7 @@ const Volunteer = () => {
               <input
                 type="text"
                 placeholder="Name"
-                className="input input-bordered input-info w-full"
+                className="input input-bordered input-info w-full text-black"
                 {...register("name")}
               />
             </div>
@@ -61,7 +61,7 @@ const Volunteer = () => {
               <input
                 type="email"
                 placeholder="Email"
-                className="input input-bordered input-info w-full"
+                className="input input-bordered input-info w-full text-black"
                 {...register("email")}
               />
             </div>
@@ -74,17 +74,17 @@ const Volunteer = () => {
               <input
                 type="number"
                 placeholder="Phone"
-                className="input input-bordered input-info w-full"
+                className="input input-bordered input-info w-full text-black"
                 {...register("phone")}
               />
             </div>
           </label>
-          <label className="form-control w-full max-w-xl">
+          <label className="form-control w-full max-w-xl text-black">
             <div className="label">
               <span className="label-text">Location</span>
             </div>
             <select
-              className="select select-bordered select-info"
+              className="select select-bordered select-info text-black"
               {...register("location")}
             >
               <option value="Dhaka">Dhaka</option>

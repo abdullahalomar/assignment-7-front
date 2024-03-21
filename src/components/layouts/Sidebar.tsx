@@ -59,13 +59,14 @@ const Sidebar = () => {
           </li>
 
           <li className="mt-14">
-            <button
+            <Link
+              to="#"
               onClick={handleLogout}
-              className="text-md font-bold hover:text-white btn btn-secondary"
+              className="text-md font-bold py-2 px-4 outline hover:outline-0 hover:bg-slate-300 text-white hover:text-black rounded me-3 sm:me-3 md:mx-auto lg:mx-auto flex items-center justify-center gap-1 sm:gap-2 md:gap-2 lg:gap-2 mb-4"
             >
               <LogOut className="shrink-0" />
               <span className="truncate font-bold">Log Out</span>
-            </button>
+            </Link>
           </li>
         </ul>
       </nav>

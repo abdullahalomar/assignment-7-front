@@ -27,7 +27,10 @@ const HeroSection = () => {
                     Provide winter clothes to those in need.
                   </div>
                 ) : (
-                  <div className="timeline-start timeline-box shadow-xl">
+                  <div
+                    data-aos="fade-right"
+                    className="timeline-start timeline-box shadow-xl"
+                  >
                     Provide winter clothes to those in need.
                   </div>
                 )}
@@ -68,7 +71,10 @@ const HeroSection = () => {
                     Engage communities through volunteerism and partnerships.
                   </div>
                 ) : (
-                  <div className="timeline-end timeline-box shadow-xl">
+                  <div
+                    data-aos="fade-left"
+                    className="timeline-end timeline-box shadow-xl"
+                  >
                     Engage communities through volunteerism and partnerships.
                   </div>
                 )}
@@ -80,7 +86,10 @@ const HeroSection = () => {
                     Ensure accessibility and inclusivity for all recipients.
                   </div>
                 ) : (
-                  <div className="timeline-start timeline-box shadow-xl">
+                  <div
+                    data-aos="fade-right"
+                    className="timeline-start timeline-box shadow-xl"
+                  >
                     Ensure accessibility and inclusivity for all recipients.
                   </div>
                 )}
@@ -121,7 +130,10 @@ const HeroSection = () => {
                     Promote sustainability in clothing practices.
                   </div>
                 ) : (
-                  <div className="timeline-end timeline-box shadow-xl">
+                  <div
+                    data-aos="fade-left"
+                    className="timeline-end timeline-box shadow-xl"
+                  >
                     Promote sustainability in clothing practices.
                   </div>
                 )}
@@ -133,7 +145,10 @@ const HeroSection = () => {
                     Empower communities with winter safety education.
                   </div>
                 ) : (
-                  <div className="timeline-start timeline-box shadow-xl">
+                  <div
+                    data-aos="fade-right"
+                    className="timeline-start timeline-box shadow-xl"
+                  >
                     Empower communities with winter safety education.
                   </div>
                 )}

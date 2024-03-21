@@ -12,7 +12,6 @@ import light from "../../assets/images/light-mode.png";
 const Navbar = () => {
   const dispatch = useAppDispatch();
   const currentUser = useSelector(selectCurrentUser);
-  console.log(currentUser);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -237,11 +236,11 @@ const Navbar = () => {
             whileTap={{ scale: 0.8 }}
           >
             {darkMode ? (
-              <button onClick={handleDarkModeToggle}>
+              <button className="" onClick={handleDarkModeToggle}>
                 <img src={light} width={35} alt="" />
               </button>
             ) : (
-              <button onClick={handleDarkModeToggle}>
+              <button className="" onClick={handleDarkModeToggle}>
                 <img src={dark} width={35} alt="" />
               </button>
             )}

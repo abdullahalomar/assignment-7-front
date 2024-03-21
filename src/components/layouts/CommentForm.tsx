@@ -13,6 +13,7 @@ const CommentForm = ({ onClose, comment, isUpdate }: any) => {
     const toastId = toast.loading("Updating...");
 
     const commentData = {
+      name: data?.name,
       description: data?.description,
     };
 
@@ -40,6 +41,15 @@ const CommentForm = ({ onClose, comment, isUpdate }: any) => {
     <div className="">
       <form onSubmit={handleSubmit(onSubmit)} className="">
         <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4 mx-12">
+          <div>
+            <span className="label-text">Comment</span>
+            <br />
+            <textarea
+              defaultValue={comment?.name}
+              className="textarea textarea-bordered textarea-xs w-full max-w-xs mt-3"
+              {...register("name")}
+            ></textarea>
+          </div>
           <div>
             <span className="label-text">Comment</span>
             <br />

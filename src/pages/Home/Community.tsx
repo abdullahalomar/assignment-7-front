@@ -71,30 +71,28 @@ const Community = () => {
   return (
     <div className="py-20 px-28">
       <div className="w-full mb-10">
-        <form
-          className="flex justify-start items-center"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <div className="">
-            <div className="mb-5">
+        <form className="" onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <label className="input input-bordered flex items-center gap-2">
               <input
-                type="text"
-                placeholder="Name"
-                className="input input-bordered input-info w-full max-w-xs"
                 value={currentUser?.name || ""}
-                disabled
-              />{" "}
-            </div>
-            <div>
-              <textarea
-                placeholder="Comment Here"
-                className="textarea textarea-info textarea-bordered textarea-lg w-full max-w-xs"
-                {...register("description", { required: true })}
+                type="text"
+                className="grow"
+                placeholder="Name"
               />
-            </div>
+            </label>
+          </div>{" "}
+          <div className="my-5">
+            <textarea
+              {...register("description", { required: true })}
+              placeholder="Comment Here"
+              className="textarea textarea-bordered textarea-lg w-full max-w-screen-xl"
+            ></textarea>
           </div>
           {currentUser ? (
-            <button className="btn btn-primary ms-5">Comment</button>
+            <button className="btn btn-primary  w-full max-w-screen-xl">
+              Comment
+            </button>
           ) : (
             <button className="btn btn-primary ms-5" disabled={!currentUser}>
               Comment
@@ -102,11 +100,17 @@ const Community = () => {
           )}
         </form>
       </div>
-      <div className="mt-5 ">
+      <hr />
+      <h1 className="text-xl text-center">Appreciation's for the support</h1>
+      <div className="mt-7">
         {comments?.data.map((comment) => (
           <div key={comment._id} className="">
             {/* Comment content */}
-            <div className="chat chat-start relative w-full min-w-[340px] mb-5">
+            <div
+              className="chat chat-start relative w-full min-w-[200px] mb-5"
+              data-aos="fade-up"
+              data-aos-anchor-placement="bottom-bottom"
+            >
               <div className="dropdown dropdown-hover absolute z-10 top-3 right-[9.8%]">
                 {currentUser && currentUser.name === comment.name && (
                   <div tabIndex={0} className="m-1">
@@ -124,18 +128,6 @@ const Community = () => {
                   tabIndex={0}
                   className="dropdown-content z-[1] menu p-2 shadow bg-slate-300 rounded-box"
                 >
-                  {currentUser && currentUser?.name === comment.name && (
-                    <li>
-                      <button
-                        onClick={() => {
-                          setShowCommentModal(true);
-                          setEditCommentId(comment._id);
-                        }}
-                      >
-                        <FilePenLine color="black" />
-                      </button>
-                    </li>
-                  )}
                   {currentUser && currentUser?.name === comment.name && (
                     <li>
                       <button onClick={() => handleDeleteComment(comment._id)}>

@@ -22,33 +22,67 @@ const VolunteerOpportunities = () => {
             focused on community welfare, humanitarian aid, or social services.
           </p>
         </div>
-        <div>
+        <div
+          data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="500"
+          data-aos-duration="500"
+        >
           <img src={nonProfit} alt="" />
           <h1 className="text-2xl font-semibold">
             Local Nonprofit Organizations
           </h1>
         </div>
-        <div>
+        <div
+          data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="500"
+          data-aos-duration="500"
+        >
           <img src={volunteer} alt="" />
 
           <h1 className="text-2xl font-semibold">Online Volunteer Platforms</h1>
         </div>
-        <div className="">
+        <div
+          data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="500"
+          data-aos-duration="500"
+          className=""
+        >
           <img src={comunity} alt="" />
 
           <h1 className="text-2xl font-semibold">Online Communities</h1>
         </div>
-        <div className="">
+        <div
+          data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="500"
+          data-aos-duration="500"
+          className=""
+        >
           <img src={initiative} alt="" />
 
           <h1 className="text-2xl font-semibold">Create Your Own Initiative</h1>
         </div>
-        <div className="">
+        <div
+          data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="500"
+          data-aos-duration="500"
+          className=""
+        >
           <img src={municipal} alt="" />
 
           <h1 className="text-2xl font-semibold">Municipal Programs</h1>
         </div>
-        <div className="">
+        <div
+          data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="500"
+          data-aos-duration="500"
+          className=""
+        >
           <img src={club} alt="" />
 
           <h1 className="text-2xl font-semibold">

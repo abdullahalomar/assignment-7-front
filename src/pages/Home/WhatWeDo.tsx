@@ -126,10 +126,8 @@ const WhatWeDo = () => {
             </motion.div>
           </div>
         </div>
-        <motion.div
-          animate={{ scale: [0, 1, 0.5, 1] }}
-          transition={{ times: [0.8, 0.5, 0.9, 1] }}
-        >
+
+        <div>
           <ul className="timeline timeline-vertical">
             <li>
               <div className="timeline-start  font-semibold">
@@ -155,7 +153,10 @@ const WhatWeDo = () => {
                   health risks like hypothermia and frostbite
                 </div>
               ) : (
-                <div className="timeline-end timeline-box  hover:bg-sky-400 hover:text-white">
+                <div
+                  data-aos="flip-up"
+                  className="timeline-end timeline-box  hover:bg-sky-400 hover:text-white"
+                >
                   Protecting vulnerable individuals from cold weather-related
                   health risks like hypothermia and frostbite
                 </div>
@@ -187,7 +188,10 @@ const WhatWeDo = () => {
                   their dignity and well-being during harsh conditions.
                 </div>
               ) : (
-                <div className="timeline-end timeline-box hover:bg-sky-400 hover:text-white">
+                <div
+                  data-aos="flip-down"
+                  className="timeline-end timeline-box hover:bg-sky-400 hover:text-white"
+                >
                   Promoting comfort and confidence among recipients, enhancing
                   their dignity and well-being during harsh conditions.
                 </div>
@@ -219,7 +223,10 @@ const WhatWeDo = () => {
                   cohesion within local communities.
                 </div>
               ) : (
-                <div className="timeline-end timeline-box hover:bg-sky-400 hover:text-white">
+                <div
+                  data-aos="flip-up"
+                  className="timeline-end timeline-box hover:bg-sky-400 hover:text-white"
+                >
                   Fostering solidarity and mutual support, strengthening social
                   cohesion within local communities.
                 </div>
@@ -251,7 +258,10 @@ const WhatWeDo = () => {
                   environmental impact and promoting ethical consumption.
                 </div>
               ) : (
-                <div className="timeline-end timeline-box hover:bg-sky-400 hover:text-white">
+                <div
+                  data-aos="flip-down"
+                  className="timeline-end timeline-box hover:bg-sky-400 hover:text-white"
+                >
                   Contributing to sustainable fashion practices, reducing
                   environmental impact and promoting ethical consumption.
                 </div>
@@ -259,7 +269,7 @@ const WhatWeDo = () => {
               <hr />
             </li>
           </ul>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

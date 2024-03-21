@@ -26,7 +26,7 @@ const Gallery = () => {
   return (
     <div className="my-24 lg:mx-28 md:mx-28 sm:mx-10 mx-10">
       <h1 className="text-center text-4xl font-semibold mb-10">Gallery</h1>
-      <div>
+      <div data-aos="zoom-in-down">
         <ImageGallery items={images} />
       </div>
     </div>

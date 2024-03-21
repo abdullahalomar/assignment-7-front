@@ -25,11 +25,11 @@ const AboutUs = () => {
     }
   };
   return (
-    <div className="mx-28 pt-14 pb-20">
+    <div className="mx-10 sm:mx-20 md:mx-28 lg:mx-28 pt-14 pb-20">
       <h1 className="text-3xl font-semibold text-center mb-5">
         Our Volunteers
       </h1>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto overflow-y-auto">
         <table className="table">
           {/* head */}
           <thead>
@@ -39,25 +39,25 @@ const AboutUs = () => {
               <th>Email</th>
               <th>Phone Number</th>
               <th>Location</th>
-              <th>Action</th>
+              {/* <th>Action</th> */}
             </tr>
           </thead>
           <tbody>
             {volunteers?.data.map((volunteer, index) => (
-              <tr key={volunteer._id}>
+              <tr data-aos="flip-down" key={volunteer._id}>
                 <th>{index + 1}</th>
                 <td>{volunteer.name}</td>
                 <td>{volunteer.email} </td>
                 <td>{volunteer.phone}</td>
                 <td>{volunteer.location}</td>
-                <td>
+                {/* <td>
                   <button
                     onClick={() => handleDeleteVolunteer(volunteer._id)}
                     className="btn btn-error"
                   >
                     <Trash />
                   </button>
-                </td>
+                </td> */}
               </tr>
             ))}
           </tbody>
