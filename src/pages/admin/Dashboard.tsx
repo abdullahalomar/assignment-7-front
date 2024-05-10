@@ -6,7 +6,6 @@ import {
   HandCoins,
   MessageCircleDashed,
   MessageSquareCode,
-  MessageSquareMore,
   Shirt,
   Users,
 } from "lucide-react";
